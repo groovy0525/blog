@@ -13,7 +13,7 @@ const fetchData = async <T>(
   data?: any,
   token?: string
 ): Promise<ReturnType<T>> => {
-  const response = await fetch(url, {
+  const response = await fetch(`https://noah-board.herokuapp.com${url}`, {
     method,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
