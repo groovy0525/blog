@@ -5,8 +5,6 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { PostsModule } from './posts/posts.module';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { resolve } from 'path';
 
 @Module({
   imports: [
@@ -16,9 +14,6 @@ import { resolve } from 'path';
         ? process.env.MONGO_DB
         : process.env.MONGO_DB_URI,
     ),
-    ServeStaticModule.forRoot({
-      rootPath: resolve('build'),
-    }),
     UsersModule,
     AuthModule,
     PostsModule,
