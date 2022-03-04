@@ -50,9 +50,11 @@ function PostForm() {
             onChange={onChangeContent}
           />
         </Form.Item>
-        <Button type="primary" htmlType="submit">
-          Write
-        </Button>
+        <StyledFormItem>
+          <Button type="primary" htmlType="submit">
+            글쓰기
+          </Button>
+        </StyledFormItem>
       </Form>
     </Base>
   );
@@ -67,6 +69,10 @@ const Base = styled.div`
   max-width: 760px;
   height: calc(100vh - 100px);
   margin: auto;
+
+  @media (max-width: 800px) {
+    padding: 0 16px;
+  }
 `;
 
 const StyledTextArea = styled(Input.TextArea)`
@@ -76,4 +82,11 @@ const StyledTextArea = styled(Input.TextArea)`
 
 const Error = styled.p`
   color: red;
+`;
+
+const StyledFormItem = styled(Form.Item)`
+  .ant-form-item-control-input-content {
+    display: flex;
+    justify-content: flex-end;
+  }
 `;

@@ -7,6 +7,7 @@ import RemoveModal from "./RemoveModal";
 import useInput from "../hooks/useInput";
 import { findOne, update } from "../features/post/postSlice";
 import { Post, ReturnType } from "../types";
+import getDate from "../lib/date";
 
 interface EditFormProps {
   postId: string | undefined;
@@ -62,16 +63,17 @@ function EditForm({ postId }: EditFormProps) {
 
   if (!post) return null;
 
-  const { createdAt, updatedAt, user: postUser } = post;
+  const { createdAt, user: postUser } = post;
   const auth = postUser.id !== user?.id;
+
+  const date = getDate(createdAt);
 
   return (
     <Base>
       <Error>{error}</Error>
       {!isEdit && (
         <Info>
-          <span>작성일: {createdAt.slice(0, 16)}</span>
-          <span>수정일: {updatedAt.slice(0, 10)}</span>
+          <span>작성일: {date.date}</span>
         </Info>
       )}
       <Form onFinish={onFinish}>
@@ -132,13 +134,18 @@ const Base = styled.div`
   max-width: 760px;
   height: calc(100vh - 100px);
   margin: auto;
+
+  @media (max-width: 800px) {
+    padding: 0 16px;
+  }
 `;
 
 const Info = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: flex-end;
   margin-bottom: 10px;
+  padding-right: 10px;
 `;
 
 const StyledTextArea = styled(Input.TextArea)`
