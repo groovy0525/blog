@@ -49,9 +49,19 @@ const Base = styled.header`
   right: 0;
   height: 100px;
   padding: 0 30px;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.05);
   background-color: #fff;
   z-index: 10;
+
+  > span {
+    margin-left: auto;
+    font-size: 20px;
+    color: #40a9ff;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -67,6 +77,10 @@ const ButtonBox = styled.div`
     margin-right: 10px;
     font-size: 18px;
     font-weight: 500;
+  }
+
+  @media (max-width: 440px) {
+    flex-direction: column;
   }
 `;
 
