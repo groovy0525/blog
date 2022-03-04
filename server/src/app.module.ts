@@ -11,7 +11,11 @@ import { resolve } from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_DB_URI),
+    MongooseModule.forRoot(
+      process.env.NODE_ENV === 'production'
+        ? process.env.MONGO_DB
+        : process.env.MONGO_DB_URI,
+    ),
     ServeStaticModule.forRoot({
       rootPath: resolve('build'),
     }),

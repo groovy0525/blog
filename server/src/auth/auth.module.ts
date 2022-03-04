@@ -11,7 +11,10 @@ import { JwtStrategy } from './jwt.strategy';
     ConfigModule.forRoot(),
     PassportModule,
     JwtModule.register({
-      secret: process.env.JWT_SECRET,
+      secret:
+        process.env.NODE_ENV === 'production'
+          ? process.env.SECRET_KEY
+          : process.env.JWT_SECRET,
       signOptions: { expiresIn: '7d' },
     }),
     forwardRef(() => UsersModule),
