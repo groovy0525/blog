@@ -13,7 +13,7 @@ const fetchData = async <T>(
   data?: any,
   token?: string
 ): Promise<ReturnType<T>> => {
-  const response = await fetch(`http://localhost:8000${url}`, {
+  const response = await fetch(url, {
     method,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
