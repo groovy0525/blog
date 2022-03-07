@@ -1,5 +1,9 @@
 # Board project
 
+**Heroku배포로 인해 처음 접속 시 데이터 로딩이 느릴 수 있습니다**
+
+<a href="https://elated-shirley-039a7c.netlify.app/">웹 페이지 보기</a>
+
 ## About project
 
 - Tech stack
