@@ -32,6 +32,14 @@ function Header() {
             <StyledLink to="register">회원 가입</StyledLink>
           </ButtonBox>
         )}
+        <a
+          href="https://github.com/groovy0525/blog"
+          className="link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          관련 GitHub 바로가기
+        </a>
       </Base>
       <Space />
     </>
@@ -61,6 +69,14 @@ const Base = styled.header`
     @media (min-width: 768px) {
       display: none;
     }
+  }
+
+  > .link {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    color: #999;
+    font-size: 12px;
   }
 `;
 
