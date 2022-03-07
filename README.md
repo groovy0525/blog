@@ -40,14 +40,32 @@
 
 ---
 
-<img width="400px" src="https://user-images.githubusercontent.com/60678333/157043022-2083c209-fbdc-4ae8-9fb8-52a5fe1944b5.png"/>
+<img width="400px" src="https://user-images.githubusercontent.com/60678333/157046201-3bf19fd2-6282-48c8-8fef-1414f8134862.png"/>
+<img width="400px" src="https://user-images.githubusercontent.com/60678333/157046248-a9a6708f-23e0-4871-91c1-c2021031aa1f.png"/>
 
-로그인을 한 유저가 상세 글 보기 페이지로 이동 한 모습입니다.
+유저가 상세 글 보기 페이지로 이동 한 모습입니다.
 
 해당 게시글을 작성한 유저가 아니면 수정, 삭제 버튼이 비 활성화 됩니다.
 
 만약 해당 게시글이 자기가 작성한 글이라면 아래와 같은 모양의 페이지로 표시됩니다.
 
-<img width="400px" src="https://user-images.githubusercontent.com/60678333/157043204-824a3b72-3e45-4b0e-9a87-441fcbbc84f2.png"/>
+---
+
+<img width="400px" src="https://user-images.githubusercontent.com/60678333/157046404-3ad18071-29c1-4016-8683-e7da44d88167.png"/>
+<img width="400px" src="https://user-images.githubusercontent.com/60678333/157046457-86a90152-0a7c-484d-aa45-092f06b7bb56.png"/>
+
+회원가입 페이지 입니다.
+
+이미 존재하는 아이디는 가입이 불가능 하고, 비밀번호와 비밀번호 확인이 다르면
+
+가입 되지 않습니다.
+
+회원가입이 성공하면 메인 페이지로 이동 되며 자동으로 로그인 됩니다.
 
 ---
+
+<img width="400px" src="https://user-images.githubusercontent.com/60678333/157046703-3a2df651-001c-41a5-98bf-332d90645f05.png"/>
+
+유효하지 않은 아이디나 비밀번호 입력시 로그인 되지 않습니다.
+
+로그인에 성공하면 메인 페이지로 이동 되고, 새로고침을 해도 로그인이 유지 됩니다.
