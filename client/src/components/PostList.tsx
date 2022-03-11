@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { List } from "antd";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
-import { find } from "../features/post/postSlice";
+import { find, selectLoading } from "../features/post/postSlice";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import getDate from "../lib/date";
 
 function PostList() {
@@ -12,6 +12,7 @@ function PostList() {
   const posts = useAppSelector(
     (state: RootState) => state.post.data.posts.posts
   );
+  const loading = useAppSelector(selectLoading);
 
   useEffect(() => {
     if (!posts) {
@@ -37,6 +38,17 @@ function PostList() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [dispatch]);
 
+  if (loading)
+    return (
+      <Loading>
+        <span></span>
+        <p>
+          Heroku 배포로 처음 접속 시 <br /> 데이터 로딩이 느릴 수 있습니다.
+          <br />
+          양해 부탁드립니다.
+        </p>
+      </Loading>
+    );
   if (!posts) return null;
 
   return (
@@ -101,5 +113,40 @@ const DateInfo = styled.p`
 
   > span:nth-of-type(2) {
     margin-left: 20px;
+  }
+`;
+
+const loadingSpinner = keyframes`
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const Loading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+
+  > span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 4px solid #eee;
+    border-top-color: #1890ff;
+    animation: 1s ${loadingSpinner} linear infinite;
+  }
+
+  > p {
+    margin-top: 20px;
+    font-size: 12px;
   }
 `;

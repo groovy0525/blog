@@ -202,4 +202,6 @@ const postSlice = createSlice({
   },
 });
 
+export const selectLoading = (state: RootState) => state.post.loading;
+
 export default postSlice.reducer;
